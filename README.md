@@ -1,10 +1,10 @@
-# [D]ictionary [D]ata [B]ase
+# [D]ictionary "[D]ata [B]ase"
 
 A class for filtering and manipulating lists of dictionaries in less than 60 lines of Python
 
 ## Usage
 
-Create a database...
+Create a "database"...
 
 ```python
 from ddb import DDB
@@ -18,7 +18,7 @@ test_data = [
 db = DDB(test_data)
 ```
 
-Filter the database using `db.select()`, which returns 
+Filter the "database" using `db.select()`, which returns 
 a new DDB with the selection for method chaining / new selections
 
 ```python
