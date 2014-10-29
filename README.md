@@ -1,4 +1,4 @@
-# [D]ictionary "[D]ata [B]ase"
+# [D]ictionary "[D]ata[B]ase"
 
 A class for filtering and manipulating lists of dictionaries in less than 60 lines of Python
 
