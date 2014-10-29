@@ -1,6 +1,6 @@
 # [D]ictionary [D]ata [B]ase
 
-A small class for filtering lists of dictionaries in 60 lines of Python
+A class for filtering and manipulating lists of dictionaries in less than 60 lines of Python
 
 ## Usage
 
@@ -55,4 +55,17 @@ for item in selection:
 #  {'a': 2, 'b': {'x': 2}}
 #  {'a': 2, 'b': {'x': 3}}
 #  {'a': 2}
+```
+
+Apply transforms, and chain operations!
+
+```python
+import random
+
+def addFuzzyAsquared(item):
+  item['a_sq'] = item['a']**2 + random.randint(0, 20)
+  return item
+
+print(selection.map(addFuzzyAsquared).select({"a_sq" : lambda x : x < 10}))
+
 ```

@@ -1,10 +1,7 @@
-#
 # ultralight dictionary database
 # Ben Southgate (bsouthga@gmail.com)
 # 10/24/14
 # license : MIT
-#
-
 
 def match(tree, query):
   '''
@@ -30,12 +27,10 @@ def match(tree, query):
           return False 
   return True
 
-
 class DDB(object):
 
   def __init__(self, dict_list):
     self.store = dict_list
-    self.query = None
 
   def __repr__(self):
     return str(self.store)
@@ -50,7 +45,10 @@ class DDB(object):
     return self.store[index]
 
   def select(self, query):
-      return DDB([i for i in self.store if match(i, query)])
+    return DDB([i for i in self.store if match(i, query)])
+
+  def map(self, transform):
+    return DDB([transform(i) for i in self.store])
 
   def insert(self, item):
     if type(item) == list:
