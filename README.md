@@ -1,6 +1,6 @@
 # [D]ictionary [D]ata [B]ase
 
-A small class for filtering lists of dictionaries in 80 lines of Python
+A small class for filtering lists of dictionaries in 60 lines of Python
 
 ## Usage
 
