@@ -13,6 +13,6 @@ selection = db.select({"a" : 2})
 print(selection)
 print(selection.select({"b" : {"x" : 2}}))
 print(selection.insert({"a" : 2}))
-print(db.select({"b" : {"x" : lambda x : x < 3}}))
+print(selection.select({"b" : {"x" : lambda x : x < 3}}))
 for item in db:
   print(item)
