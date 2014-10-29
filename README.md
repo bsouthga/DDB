@@ -52,7 +52,7 @@ Iterate through the selection!
 for item in selection:
   print(item)
 # =>
-#  {'a': 1, 'b': {'x': 2}}
 #  {'a': 2, 'b': {'x': 2}}
 #  {'a': 2, 'b': {'x': 3}}
+#  {'a': 2}
 ```
