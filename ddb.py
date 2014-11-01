@@ -2,13 +2,15 @@
 # Ben Southgate (bsouthga@gmail.com)
 # 10/24/14
 # license : MIT
+import itertools
 
 def match(tree, query):
   '''
     return boolean indicating if all
     elements of query match tree
   '''
-  for k, v in query.items():
+  for k in query:
+    v = query[k]
     if k not in tree:
       return False
     if type(v) == dict:
@@ -29,30 +31,34 @@ def match(tree, query):
 
 class DDB(object):
 
-  def __init__(self, dict_list):
-    self.store = dict_list
+  def __init__(self, data):
+    self.d = data
 
   def __repr__(self):
-    return str(self.store)
+    view = list(self.d)
+    self.d = (x for x in view)
+    return str(view)
 
   def __iter__(self):
-    for item in self.store: yield item
+    for item in self.d: yield item
 
   def __len__(self):
-    return len(self.store)
+    view = list(self.d)
+    self.d = (x for x in view)
+    return len(view)
 
-  def __getitem__(self, index):
-    return self.store[index]
+  def split(self):
+    view, copy = itertools.tee(self.d)
+    self.d = view
+    return copy
 
   def select(self, query):
-    return DDB([i for i in self.store if match(i, query)])
+    return DDB(x for x in self.split() if match(x, query))
 
   def map(self, transform):
-    return DDB([transform(i) for i in self.store])
+    return DDB(transform(x) for x in self.split())
 
   def insert(self, item):
-    if type(item) == list:
-      self.store += item
-    else:
-      self.store.append(item)
-    return self
+    if type(item) == dict or not hasattr(item, '__iter__'):
+      item = [item]
+    return DDB(x for x in itertools.chain(self.split(), item))
