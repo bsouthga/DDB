@@ -1,6 +1,6 @@
 # [D]ictionary "[D]ata[B]ase"
 
-A class for filtering and manipulating lists of dictionaries in less than 60 lines of Python
+A class for lazily filtering and manipulating lists of dictionaries in less than 60 lines of Python. Everything is passed as generators, so memory efficiency should be pretty good! There are no dependencies other then the built-in `itertools`.
 
 ## Usage
 
