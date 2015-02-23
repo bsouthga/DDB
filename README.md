@@ -10,7 +10,7 @@ Create a "database"...
 from ddb import DDB
 
 test_data = [
-  {"a" : 1, "b" : {"x" : 2}}, 
+  {"a" : 1, "b" : {"x" : 2}},
   {"a" : 2, "b" : {"x" : 2}},
   {"a" : 2, "b" : {"x" : 3}}
 ]
@@ -18,7 +18,7 @@ test_data = [
 db = DDB(test_data)
 ```
 
-Filter the "database" using `db.select()`, which returns 
+Filter the "database" using `db.select()`, which returns
 a new DDB with the selection for method chaining / new selections
 
 ```python
@@ -30,7 +30,7 @@ print(selection.select({"b" : {"x" : 2}}))
 
 ```
 
-Insert stuff 
+Insert stuff
 
 ```python
 print(selection.insert({"a" : 2}))
